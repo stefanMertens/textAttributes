@@ -11,8 +11,8 @@
 		1FE413CE222B322A00528D7A /* TextAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FE413C0222B322A00528D7A /* TextAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FE413D8222B335B00528D7A /* TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE413D7222B335B00528D7A /* TextAttributes.swift */; };
 		1FE413DA222B337500528D7A /* TextAttributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE413D9222B337500528D7A /* TextAttributed.swift */; };
-		1FE413DC222B35CC00528D7A /* String+Attributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE413DB222B35CC00528D7A /* String+Attributed.swift */; };
-		1FE413DE222B35F400528D7A /* NSAttributedString+Attributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE413DD222B35F400528D7A /* NSAttributedString+Attributed.swift */; };
+		1FE413DC222B35CC00528D7A /* String+TextAttributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE413DB222B35CC00528D7A /* String+TextAttributed.swift */; };
+		1FE413DE222B35F400528D7A /* NSAttributedString+TextAttributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE413DD222B35F400528D7A /* NSAttributedString+TextAttributed.swift */; };
 		1FE413E0222B366200528D7A /* TextAttributesType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE413DF222B366200528D7A /* TextAttributesType.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,8 +23,8 @@
 		1FE413C1222B322A00528D7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FE413D7222B335B00528D7A /* TextAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributes.swift; sourceTree = "<group>"; };
 		1FE413D9222B337500528D7A /* TextAttributed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributed.swift; sourceTree = "<group>"; };
-		1FE413DB222B35CC00528D7A /* String+Attributed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Attributed.swift"; sourceTree = "<group>"; };
-		1FE413DD222B35F400528D7A /* NSAttributedString+Attributed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Attributed.swift"; sourceTree = "<group>"; };
+		1FE413DB222B35CC00528D7A /* String+TextAttributed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+TextAttributed.swift"; sourceTree = "<group>"; };
+		1FE413DD222B35F400528D7A /* NSAttributedString+TextAttributed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+TextAttributed.swift"; sourceTree = "<group>"; };
 		1FE413DF222B366200528D7A /* TextAttributesType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributesType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,8 +70,8 @@
 		1FE413E1222B5A8800528D7A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				1FE413DB222B35CC00528D7A /* String+Attributed.swift */,
-				1FE413DD222B35F400528D7A /* NSAttributedString+Attributed.swift */,
+				1FE413DB222B35CC00528D7A /* String+TextAttributed.swift */,
+				1FE413DD222B35F400528D7A /* NSAttributedString+TextAttributed.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -177,8 +177,8 @@
 			files = (
 				1FE413E0222B366200528D7A /* TextAttributesType.swift in Sources */,
 				1FE413D8222B335B00528D7A /* TextAttributes.swift in Sources */,
-				1FE413DE222B35F400528D7A /* NSAttributedString+Attributed.swift in Sources */,
-				1FE413DC222B35CC00528D7A /* String+Attributed.swift in Sources */,
+				1FE413DE222B35F400528D7A /* NSAttributedString+TextAttributed.swift in Sources */,
+				1FE413DC222B35CC00528D7A /* String+TextAttributed.swift in Sources */,
 				1F1329D7225A200C00CFD69D /* TypeAliasses.swift in Sources */,
 				1FE413DA222B337500528D7A /* TextAttributed.swift in Sources */,
 			);

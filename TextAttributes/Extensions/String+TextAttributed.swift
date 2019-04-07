@@ -1,5 +1,5 @@
 //
-//  NSAttributedString+Attributed.swift
+//  String+TextAttributed.swift
 //
 //  Copyright (c) 2019 by Stefan Mertens.
 //
@@ -23,21 +23,26 @@
 
 import Foundation
 
-public extension NSAttributedString {
+public extension String {
 
-    func replace(part: String, with attributesHandler: TextAttributesHandler) -> NSAttributedString {
-        return replace(part: part, with: attributesHandler(TextAttributes()))
+    func attributed(with attributes: TextAttributed) -> NSAttributedString {
+        return NSAttributedString(string: self, attributes: attributes.textAttributes)
     }
 
-    func replace(part: String, with attributes: TextAttributed) -> NSAttributedString {
-        guard let textToChange = self.mutableCopy() as? NSMutableAttributedString else { return self }
+    func attributed(with attributes: [TextAttributed]) -> NSAttributedString {
+        var allAttributes: AttributedStringKeyDictionary = [ : ]
 
-        let range: NSRange = (string as NSString).range(of: part, options: .caseInsensitive)
-        let result: NSMutableAttributedString = NSMutableAttributedString(attributedString: textToChange)
-        let textAttributes: AttributedStringKeyDictionary = attributes.textAttributes
+        attributes.forEach {
+            for (key, value) in $0.textAttributes {
+                allAttributes[key] = value
+            }
+        }
 
-        result.addAttributes(textAttributes, range: range)
+        return NSAttributedString(string: self, attributes: allAttributes)
+    }
 
-        return NSAttributedString(attributedString: result)
+    func attributed(_ attributesHandler: TextAttributesHandler) -> NSAttributedString {
+        let attributes: TextAttributes = attributesHandler(TextAttributes())
+        return NSAttributedString(string: self, attributes: attributes.textAttributes)
     }
 }
