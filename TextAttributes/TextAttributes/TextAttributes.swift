@@ -45,11 +45,11 @@ public struct TextAttributes: TextAttributed {
         self = attributesHandler(TextAttributes())
     }
 
-    public init(type: AttributedTextType) {
+    public init(type: TextAttributesType) {
         self.attributesDictionary = type.textAttributes
     }
 
-    public init(types: [AttributedTextType]) {
+    public init(types: [TextAttributesType]) {
         var dictionary: AttributedStringKeyDictionary = [ : ]
 
         types.forEach {
@@ -74,7 +74,7 @@ extension TextAttributes {
 
     // MARK: - Private Methods
 
-    private func merged(with type: AttributedTextType) -> TextAttributes {
+    private func merged(with type: TextAttributesType) -> TextAttributes {
 
         // merge attributes first
         let attributes: TextAttributes = TextAttributes(dictionary: type.textAttributes)

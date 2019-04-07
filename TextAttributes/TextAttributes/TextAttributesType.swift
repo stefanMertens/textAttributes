@@ -1,5 +1,5 @@
 //
-//  AttributedTextType.swift
+//  TextAttributesType.swift
 //
 //  Copyright (c) 2019 by Stefan Mertens.
 //
@@ -23,7 +23,7 @@
 
 import UIKit
 
-public enum AttributedTextType: TextAttributed {
+public enum TextAttributesType: TextAttributed {
 
     // MARK: - Cases
 
