@@ -68,96 +68,6 @@ public struct TextAttributes: TextAttributed {
     }
 }
 
-// MARK: - Merge Method
-
-extension TextAttributes {
-
-    // MARK: - Private Properteis
-
-    private var currentParagraphStyle: NSMutableParagraphStyle {
-        guard let paragraphyStyle = textAttributes[AttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle  else {
-            return NSMutableParagraphStyle.default.mutableCopy() as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        }
-        return paragraphyStyle
-    }
-
-    // MARK: - Private Methods
-
-    private func merged(with type: TextAttributesType) -> TextAttributes {
-
-        // merge attributes first
-        let attributes: TextAttributes = TextAttributes(dictionary: type.textAttributes)
-
-        var oldDictionary: AttributedStringKeyDictionary = textAttributes
-        let newDictionary: AttributedStringKeyDictionary = attributes.textAttributes
-
-        for (key, value) in newDictionary {
-            oldDictionary[key] = value
-        }
-
-        // merge paragraph styles
-        let defaultParagraphStyle: NSParagraphStyle = NSParagraphStyle.default
-        let newParagraphStyle: NSMutableParagraphStyle = attributes.currentParagraphStyle
-        let combinedParagraphStyles: NSMutableParagraphStyle = currentParagraphStyle
-
-        if newParagraphStyle.alignment != defaultParagraphStyle.alignment {
-            combinedParagraphStyles.alignment = newParagraphStyle.alignment
-        }
-
-        if newParagraphStyle.baseWritingDirection != defaultParagraphStyle.baseWritingDirection {
-            combinedParagraphStyles.baseWritingDirection = newParagraphStyle.baseWritingDirection
-        }
-
-        if newParagraphStyle.firstLineHeadIndent != defaultParagraphStyle.firstLineHeadIndent {
-            combinedParagraphStyles.firstLineHeadIndent = newParagraphStyle.firstLineHeadIndent
-        }
-
-        if newParagraphStyle.headIndent != defaultParagraphStyle.headIndent {
-            combinedParagraphStyles.headIndent = newParagraphStyle.headIndent
-        }
-
-        if newParagraphStyle.hyphenationFactor != defaultParagraphStyle.hyphenationFactor {
-            combinedParagraphStyles.hyphenationFactor = newParagraphStyle.hyphenationFactor
-        }
-
-        if newParagraphStyle.lineHeightMultiple != defaultParagraphStyle.lineHeightMultiple {
-            combinedParagraphStyles.lineHeightMultiple = newParagraphStyle.lineHeightMultiple
-        }
-
-        if newParagraphStyle.lineBreakMode != defaultParagraphStyle.lineBreakMode {
-            combinedParagraphStyles.lineBreakMode = newParagraphStyle.lineBreakMode
-        }
-
-        if newParagraphStyle.lineSpacing != defaultParagraphStyle.lineSpacing {
-            combinedParagraphStyles.lineSpacing = newParagraphStyle.lineSpacing
-        }
-
-        if newParagraphStyle.minimumLineHeight != defaultParagraphStyle.minimumLineHeight {
-            combinedParagraphStyles.minimumLineHeight = newParagraphStyle.minimumLineHeight
-        }
-
-        if newParagraphStyle.maximumLineHeight != defaultParagraphStyle.maximumLineHeight {
-            combinedParagraphStyles.maximumLineHeight = newParagraphStyle.maximumLineHeight
-        }
-
-        if newParagraphStyle.paragraphSpacing != defaultParagraphStyle.paragraphSpacing {
-            combinedParagraphStyles.paragraphSpacing = newParagraphStyle.paragraphSpacing
-        }
-
-        if newParagraphStyle.paragraphSpacingBefore != defaultParagraphStyle.paragraphSpacingBefore {
-            combinedParagraphStyles.paragraphSpacingBefore = newParagraphStyle.paragraphSpacingBefore
-        }
-
-        if newParagraphStyle.tailIndent != defaultParagraphStyle.tailIndent {
-            combinedParagraphStyles.tailIndent = newParagraphStyle.tailIndent
-        }
-
-        oldDictionary[AttributedStringKey.paragraphStyle] = combinedParagraphStyles
-
-        return TextAttributes(dictionary: oldDictionary)
-    }
-}
-
 // MARK: - Attributes
 
 extension TextAttributes {
@@ -281,5 +191,95 @@ extension TextAttributes {
 
     public func uniformLineHeight(_ lineHeight: CGFloat) -> TextAttributes {
         return self.merged(with: .uniformLineHeight(lineHeight))
+    }
+}
+
+// MARK: - Merge Method
+
+extension TextAttributes {
+
+    // MARK: - Private Properteis
+
+    private var currentParagraphStyle: NSMutableParagraphStyle {
+        guard let paragraphyStyle = textAttributes[AttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle  else {
+            return NSMutableParagraphStyle.default.mutableCopy() as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        }
+        return paragraphyStyle
+    }
+
+    // MARK: - Private Methods
+
+    private func merged(with type: TextAttributesType) -> TextAttributes {
+
+        // merge attributes first
+        let attributes: TextAttributes = TextAttributes(dictionary: type.textAttributes)
+
+        var oldDictionary: AttributedStringKeyDictionary = textAttributes
+        let newDictionary: AttributedStringKeyDictionary = attributes.textAttributes
+
+        for (key, value) in newDictionary {
+            oldDictionary[key] = value
+        }
+
+        // merge paragraph styles
+        let defaultParagraphStyle: NSParagraphStyle = NSParagraphStyle.default
+        let newParagraphStyle: NSMutableParagraphStyle = attributes.currentParagraphStyle
+        let combinedParagraphStyles: NSMutableParagraphStyle = currentParagraphStyle
+
+        if newParagraphStyle.alignment != defaultParagraphStyle.alignment {
+            combinedParagraphStyles.alignment = newParagraphStyle.alignment
+        }
+
+        if newParagraphStyle.baseWritingDirection != defaultParagraphStyle.baseWritingDirection {
+            combinedParagraphStyles.baseWritingDirection = newParagraphStyle.baseWritingDirection
+        }
+
+        if newParagraphStyle.firstLineHeadIndent != defaultParagraphStyle.firstLineHeadIndent {
+            combinedParagraphStyles.firstLineHeadIndent = newParagraphStyle.firstLineHeadIndent
+        }
+
+        if newParagraphStyle.headIndent != defaultParagraphStyle.headIndent {
+            combinedParagraphStyles.headIndent = newParagraphStyle.headIndent
+        }
+
+        if newParagraphStyle.hyphenationFactor != defaultParagraphStyle.hyphenationFactor {
+            combinedParagraphStyles.hyphenationFactor = newParagraphStyle.hyphenationFactor
+        }
+
+        if newParagraphStyle.lineHeightMultiple != defaultParagraphStyle.lineHeightMultiple {
+            combinedParagraphStyles.lineHeightMultiple = newParagraphStyle.lineHeightMultiple
+        }
+
+        if newParagraphStyle.lineBreakMode != defaultParagraphStyle.lineBreakMode {
+            combinedParagraphStyles.lineBreakMode = newParagraphStyle.lineBreakMode
+        }
+
+        if newParagraphStyle.lineSpacing != defaultParagraphStyle.lineSpacing {
+            combinedParagraphStyles.lineSpacing = newParagraphStyle.lineSpacing
+        }
+
+        if newParagraphStyle.minimumLineHeight != defaultParagraphStyle.minimumLineHeight {
+            combinedParagraphStyles.minimumLineHeight = newParagraphStyle.minimumLineHeight
+        }
+
+        if newParagraphStyle.maximumLineHeight != defaultParagraphStyle.maximumLineHeight {
+            combinedParagraphStyles.maximumLineHeight = newParagraphStyle.maximumLineHeight
+        }
+
+        if newParagraphStyle.paragraphSpacing != defaultParagraphStyle.paragraphSpacing {
+            combinedParagraphStyles.paragraphSpacing = newParagraphStyle.paragraphSpacing
+        }
+
+        if newParagraphStyle.paragraphSpacingBefore != defaultParagraphStyle.paragraphSpacingBefore {
+            combinedParagraphStyles.paragraphSpacingBefore = newParagraphStyle.paragraphSpacingBefore
+        }
+
+        if newParagraphStyle.tailIndent != defaultParagraphStyle.tailIndent {
+            combinedParagraphStyles.tailIndent = newParagraphStyle.tailIndent
+        }
+
+        oldDictionary[AttributedStringKey.paragraphStyle] = combinedParagraphStyles
+
+        return TextAttributes(dictionary: oldDictionary)
     }
 }
