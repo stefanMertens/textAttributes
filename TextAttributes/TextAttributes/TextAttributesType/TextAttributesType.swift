@@ -1,5 +1,5 @@
 //
-//  TextAttributed.swift
+//  TextAttributesType.swift
 //
 //  Copyright (c) 2019 by Stefan Mertens.
 //
@@ -21,10 +21,40 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import Foundation
 import UIKit
 
-public protocol TextAttributed {
+public enum TextAttributesType {
 
-    var textAttributes: AttributedStringKeyDictionary { get }
+    // textAttributes
+    case attachment(NSTextAttachment)
+    case backgroundColor(UIColor)
+    case baselineOffset(NSNumber)
+    case font(UIFont)
+    case kerning(Double)
+    case link(NSURL)
+    case obliqueness(CGFloat)
+    case paragraphStyle(NSParagraphStyle)
+    case shadow(NSShadow)
+    case strikeThroughStyle(NSUnderlineStyle)
+    case strokeColor(UIColor)
+    case strokeWidth(NSNumber)
+    case textColor(UIColor)
+    case underlineColor(UIColor)
+    case underlineStyle(NSUnderlineStyle)
+
+    // paragraphStyles
+    case alignment(NSTextAlignment)
+    case baseWritingDirection(NSWritingDirection)
+    case firstLineIndent(CGFloat)
+    case headIndent(CGFloat)
+    case hyphenationFactor(Float)
+    case lineBreakMode(NSLineBreakMode)
+    case lineHeightMultiple(CGFloat)
+    case lineSpacing(CGFloat)
+    case minimumLineHeight(CGFloat)
+    case maximumLineHeight(CGFloat)
+    case paragraphSpacing(CGFloat)
+    case paragraphSpacingBefore(CGFloat)
+    case tailIndent(CGFloat)
+    case uniformLineHeight(CGFloat)
 }

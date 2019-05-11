@@ -72,6 +72,15 @@ public struct TextAttributes: TextAttributed {
 
 extension TextAttributes {
 
+    // MARK: - Private Properteis
+
+    private var currentParagraphStyle: NSMutableParagraphStyle {
+        guard let paragraphyStyle = textAttributes[AttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle  else {
+            return NSMutableParagraphStyle.default.mutableCopy() as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        }
+        return paragraphyStyle
+    }
+
     // MARK: - Private Methods
 
     private func merged(with type: TextAttributesType) -> TextAttributes {
@@ -218,92 +227,59 @@ extension TextAttributes {
 
 extension TextAttributes {
 
-    private var currentParagraphStyle: NSMutableParagraphStyle {
-        guard let paragraphyStyle = textAttributes[AttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle  else {
-            return NSMutableParagraphStyle.default.mutableCopy() as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        }
-        return paragraphyStyle
-    }
-
     public func alignment(_ alignment: NSTextAlignment) -> TextAttributes {
-        let paragraphStyle: NSMutableParagraphStyle = currentParagraphStyle
-        paragraphStyle.alignment = alignment
-        return self.merged(with: .paragraphStyle(paragraphStyle))
+        return self.merged(with: .alignment(alignment))
     }
 
     public func baseWritingDirection(_ direction: NSWritingDirection) -> TextAttributes {
-        let paragraphStyle: NSMutableParagraphStyle = currentParagraphStyle
-        paragraphStyle.baseWritingDirection = direction
-        return self.merged(with: .paragraphStyle(paragraphStyle))
+        return self.merged(with: .baseWritingDirection(direction))
     }
 
     public func firstLineHeadIndent(_ indent: CGFloat) -> TextAttributes {
-        let paragraphStyle: NSMutableParagraphStyle = currentParagraphStyle
-        paragraphStyle.firstLineHeadIndent = indent
-        return self.merged(with: .paragraphStyle(paragraphStyle))
+        return self.merged(with: .firstLineIndent(indent))
     }
 
     public func headIndent(_ indent: CGFloat) -> TextAttributes {
-        let paragraphStyle: NSMutableParagraphStyle = currentParagraphStyle
-        paragraphStyle.headIndent = indent
-        return self.merged(with: .paragraphStyle(paragraphStyle))
+        return self.merged(with: .headIndent(indent))
     }
 
     public func hyphenationFactor(_ factor: Float) -> TextAttributes {
-        let paragraphStyle: NSMutableParagraphStyle = currentParagraphStyle
-        paragraphStyle.hyphenationFactor = factor
-        return self.merged(with: .paragraphStyle(paragraphStyle))
+        return self.merged(with: .hyphenationFactor(factor))
     }
 
     public func lineBreakMode(_ lineBreakMode: NSLineBreakMode) -> TextAttributes {
-        let paragraphStyle: NSMutableParagraphStyle = currentParagraphStyle
-        paragraphStyle.lineBreakMode = lineBreakMode
-        return self.merged(with: .paragraphStyle(paragraphStyle))
+        return self.merged(with: .lineBreakMode(lineBreakMode))
     }
 
     public func lineHeightMultiple(_ lineHeight: CGFloat) -> TextAttributes {
-        let paragraphStyle: NSMutableParagraphStyle = currentParagraphStyle
-        paragraphStyle.lineHeightMultiple = lineHeight
-        return self.merged(with: .paragraphStyle(paragraphStyle))
+        return self.merged(with: .lineHeightMultiple(lineHeight))
     }
 
     public func lineSpacing(_ lineSpacing: CGFloat) -> TextAttributes {
-        let paragraphStyle: NSMutableParagraphStyle = currentParagraphStyle
-        paragraphStyle.lineSpacing = lineSpacing
-        return self.merged(with: .paragraphStyle(paragraphStyle))
+        return self.merged(with: .lineSpacing(lineSpacing))
     }
 
     public func minimumLineHeight(_ lineHeight: CGFloat) -> TextAttributes {
-        let paragraphStyle: NSMutableParagraphStyle = currentParagraphStyle
-        paragraphStyle.minimumLineHeight = lineHeight
-        return self.merged(with: .paragraphStyle(paragraphStyle))
+        return self.merged(with: .minimumLineHeight(lineHeight))
     }
 
     public func maximumLineHeight(_ lineHeight: CGFloat) -> TextAttributes {
-        let paragraphStyle: NSMutableParagraphStyle = currentParagraphStyle
-        paragraphStyle.maximumLineHeight = lineHeight
-        return self.merged(with: .paragraphStyle(paragraphStyle))
+        return self.merged(with: .maximumLineHeight(lineHeight))
     }
 
     public func paragraphSpacing(_ spacing: CGFloat) -> TextAttributes {
-        let paragraphStyle: NSMutableParagraphStyle = currentParagraphStyle
-        paragraphStyle.paragraphSpacing = spacing
-        return self.merged(with: .paragraphStyle(paragraphStyle))
+        return self.merged(with: .paragraphSpacing(spacing))
     }
 
     public func paragraphSpacingBefore(_ spacing: CGFloat) -> TextAttributes {
-        let paragraphStyle: NSMutableParagraphStyle = currentParagraphStyle
-        paragraphStyle.paragraphSpacingBefore = spacing
-        return self.merged(with: .paragraphStyle(paragraphStyle))
+        return self.merged(with: .paragraphSpacingBefore(spacing))
     }
 
     public func tailIndent(_ indent: CGFloat) -> TextAttributes {
-        let paragraphStyle: NSMutableParagraphStyle = currentParagraphStyle
-        paragraphStyle.tailIndent = indent
-        return self.merged(with: .paragraphStyle(paragraphStyle))
+        return self.merged(with: .tailIndent(indent))
     }
 
     public func uniformLineHeight(_ lineHeight: CGFloat) -> TextAttributes {
-        return maximumLineHeight(lineHeight).minimumLineHeight(lineHeight)
+        return self.merged(with: .uniformLineHeight(lineHeight))
     }
 }

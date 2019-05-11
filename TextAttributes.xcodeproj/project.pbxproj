@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F1329D7225A200C00CFD69D /* TypeAliasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1329D6225A200C00CFD69D /* TypeAliasses.swift */; };
+		1F39F6332286C23900E855D3 /* TextAttributesType+TextAttributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39F6322286C23900E855D3 /* TextAttributesType+TextAttributed.swift */; };
+		1F39F66A2286CE7100E855D3 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39F6692286CE7100E855D3 /* Example.swift */; };
 		1FE413CE222B322A00528D7A /* TextAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FE413C0222B322A00528D7A /* TextAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FE413D8222B335B00528D7A /* TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE413D7222B335B00528D7A /* TextAttributes.swift */; };
 		1FE413DA222B337500528D7A /* TextAttributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE413D9222B337500528D7A /* TextAttributed.swift */; };
@@ -18,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		1F1329D6225A200C00CFD69D /* TypeAliasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliasses.swift; sourceTree = "<group>"; };
+		1F39F6322286C23900E855D3 /* TextAttributesType+TextAttributed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextAttributesType+TextAttributed.swift"; sourceTree = "<group>"; };
+		1F39F6692286CE7100E855D3 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		1FE413BD222B322900528D7A /* TextAttributes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TextAttributes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE413C0222B322A00528D7A /* TextAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextAttributes.h; sourceTree = "<group>"; };
 		1FE413C1222B322A00528D7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F39F6342286C2A300E855D3 /* TextAttributesType */ = {
+			isa = PBXGroup;
+			children = (
+				1FE413DF222B366200528D7A /* TextAttributesType.swift */,
+				1F39F6322286C23900E855D3 /* TextAttributesType+TextAttributed.swift */,
+			);
+			path = TextAttributesType;
+			sourceTree = "<group>";
+		};
 		1FE413B3222B322900528D7A = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +71,7 @@
 		1FE413BF222B322900528D7A /* TextAttributes */ = {
 			isa = PBXGroup;
 			children = (
+				1F39F6692286CE7100E855D3 /* Example.swift */,
 				1FE413E2222B5A9900528D7A /* Protocol */,
 				1FE413E3222B5AAC00528D7A /* TextAttributes */,
 				1FE413E1222B5A8800528D7A /* Extensions */,
@@ -89,7 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				1FE413D7222B335B00528D7A /* TextAttributes.swift */,
-				1FE413DF222B366200528D7A /* TextAttributesType.swift */,
+				1F39F6342286C2A300E855D3 /* TextAttributesType */,
 			);
 			path = TextAttributes;
 			sourceTree = "<group>";
@@ -179,6 +193,8 @@
 				1FE413D8222B335B00528D7A /* TextAttributes.swift in Sources */,
 				1FE413DE222B35F400528D7A /* NSAttributedString+TextAttributed.swift in Sources */,
 				1FE413DC222B35CC00528D7A /* String+TextAttributed.swift in Sources */,
+				1F39F66A2286CE7100E855D3 /* Example.swift in Sources */,
+				1F39F6332286C23900E855D3 /* TextAttributesType+TextAttributed.swift in Sources */,
 				1F1329D7225A200C00CFD69D /* TypeAliasses.swift in Sources */,
 				1FE413DA222B337500528D7A /* TextAttributed.swift in Sources */,
 			);
