@@ -24,6 +24,11 @@
 import Foundation
 import UIKit
 
+public typealias AttributedStringKey = NSAttributedString.Key
+public typealias AttributedStringKeyDictionary = [AttributedStringKey : Any]
+
+public typealias TextAttributesHandler = (TextAttributes) -> (TextAttributes)
+
 public protocol TextAttributed {
 
     var textAttributes: AttributedStringKeyDictionary { get }
