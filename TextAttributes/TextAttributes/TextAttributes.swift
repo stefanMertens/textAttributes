@@ -198,7 +198,7 @@ extension TextAttributes {
 
 extension TextAttributes {
 
-    // MARK: - Private Properteis
+    // MARK: - Private Properties
 
     private var currentParagraphStyle: NSMutableParagraphStyle {
         guard let paragraphyStyle = textAttributes[AttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle  else {
